@@ -34,6 +34,12 @@ body { background:#f7f5f3; color:#2b2a28; font-family:"Zen Kaku Gothic New","Hir
 .card h2 { font-size:16px; color:#b5574a; margin-bottom:10px; }
 .chips li { background:#fff; border:1px solid #e6cfc9; color:#8f4439; font-size:14px; padding:4px 12px; border-radius:6px; }
 .video { border-radius:8px; } .back { color:#6f6862; } .back a { color:#b5574a; font-weight:700; } footer { color:#9a928c; }
+
+/* 得意な相談：チェックリスト */
+.chips { display: block; }
+.chips li { display: flex; align-items: center; gap: 10px; background: none; border: 0; border-bottom: 1px solid #e6cfc9; border-radius: 0; padding: 10px 2px; font-size: 15px; font-weight: 400; color: inherit; }
+.chips li:last-child { border-bottom: 0; padding-bottom: 0; }
+.chips li::before { content: ""; flex: none; width: 18px; height: 18px; background: #b5574a; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0a12 12 0 100 24 12 12 0 000-24zm-1.6 17.2L5 11.8l1.7-1.7 3.7 3.7 7-7 1.7 1.7z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0a12 12 0 100 24 12 12 0 000-24zm-1.6 17.2L5 11.8l1.7-1.7 3.7 3.7 7-7 1.7 1.7z'/%3E%3C/svg%3E") center / contain no-repeat; }
 </style>
 </head>
 <body>
