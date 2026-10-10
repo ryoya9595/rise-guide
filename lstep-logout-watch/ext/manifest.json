@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Lステップ ログアウト記録",
+  "version": "1.0.0",
+  "description": "Lステップから急にログアウトされた時刻と、ログイン状態の消え方を、このパソコンの中だけに記録します。",
+  "permissions": ["cookies", "storage"],
+  "host_permissions": ["https://*.linestep.net/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    { "matches": ["https://*.linestep.net/*"], "js": ["content.js"], "run_at": "document_idle" }
+  ],
+  "action": { "default_title": "Lステップ ログアウト記録（クリックで記録を見る）" }
+}
