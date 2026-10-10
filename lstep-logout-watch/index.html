@@ -108,6 +108,10 @@
     word-break: break-all;
     margin: 12px 0 8px;
   }
+  table.judge { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.judge th, table.judge td { text-align: left; vertical-align: top; padding: 9px 8px; border-top: 1px solid var(--line); }
+  table.judge th { font-size: 13px; color: var(--sub); border-top: 0; }
+  table.judge td:first-child { width: 38%; font-weight: 700; }
   footer { color: var(--sub); font-size: 13px; text-align: center; margin-top: 28px; }
 </style>
 </head>
@@ -139,9 +143,25 @@
     <h2>記録されること</h2>
     <ul>
       <li>ログイン画面に飛ばされた<b>時刻</b>と、直前に開いていたページ</li>
-      <li>ログイン情報が<b>どう消えたか</b>（Lステップ側が消した／有効期限切れ／ブラウザ側で消された）</li>
+      <li><b>最後に操作してから何分後</b>に追い出されたか（何を押したか・何を入力したかは記録しません）</li>
+      <li>ログイン情報が<b>どう消えたか</b>（Lステップ側が消した／有効期限切れ／ブラウザ側で消された／消えずに無効になった）</li>
       <li>ログイン画面に出ていた<b>注意書き</b>（例：「他の端末でログインされました」）</li>
     </ul>
+  </section>
+
+  <section class="card">
+    <h2>これでわかること・わからないこと</h2>
+    <p style="margin:0 0 10px">記録の出方で、原因をここまで絞り込めます。</p>
+    <table class="judge">
+      <thead><tr><th>記録の出方</th><th>わかること</th></tr></thead>
+      <tbody>
+        <tr><td>「ブラウザ側で消された」</td><td><b>パソコン側が原因でほぼ確定。</b>Chromeの設定や、Cookieを消す拡張機能・セキュリティソフトを見直せば直ります</td></tr>
+        <tr><td>毎回だいたい同じ時間、放置したあとに追い出される</td><td><b>放置による時間切れでほぼ確定。</b>Lステップ側の仕様なので、こまめに画面を開き直すか、Lステップに問い合わせます</td></tr>
+        <tr><td>注意書きに「他の端末」「別の場所」など</td><td><b>同じIDでの別ログインで確定。</b>使う人ごとにIDを分ければ直ります</td></tr>
+        <tr><td>操作中（1分以内）に追い出され、注意書きもない</td><td><b>Lステップ側の判断までは確定、理由は絞り込みが必要。</b>候補は「同じIDの別ログイン」か「ネットのつなぎ先の変化（Wi-Fiの切り替え・VPNなど）」。時刻を、他の人がログインした時間やWi-Fiを切り替えた時間と比べます</td></tr>
+      </tbody>
+    </table>
+    <p class="note" style="margin-top:12px"><b>わからないこと：</b>Lステップのサーバーの中で何が起きたかまでは見えません。最後の行のように理由が残ったときは、記録した<b>正確な日時</b>をLステップのサポートに伝えると、向こうのサーバーの記録から理由を調べてもらえます（「よく落ちる」とだけ伝えるより、ずっと話が早くなります）。</p>
   </section>
 
   <section class="card">

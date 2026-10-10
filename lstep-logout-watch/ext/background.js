@@ -49,6 +49,7 @@ chrome.runtime.onStartup.addListener(async () => {
 chrome.cookies.onChanged.addListener(({ removed, cookie, cause }) => {
   if (!removed || cause === 'overwrite') return;
   if (!LINESTEP.test(cookie.domain.replace(/^\./, ''))) return;
+  chrome.storage.session.set({ lastCookieRemoval: { at: Date.now(), cause } });
   addLog({
     kind: 'cookie_removed',
     cause,
@@ -70,10 +71,24 @@ chrome.tabs.onUpdated.addListener(async (tabId, info) => {
   const prev = (await chrome.storage.session.get(key))[key];
   await chrome.storage.session.set({ [key]: u.pathname });
   if (!isLogin(u.pathname) || !prev || isLogin(prev)) return;
+  if (/logout|signout|sign_out/i.test(prev)) {
+    addLog({ kind: 'manual_logout', from: prev, to: u.pathname });
+    return;
+  }
+  // 最後に操作してから何分後か／直前2分以内にログイン情報が消えていたか
+  // ログアウトにはクリックした瞬間に気づくことが多い。その操作が15秒以内なら、「その前の操作」からの時間を放置時間とみなす
+  const { lastActivity, prevActivity, lastCookieRemoval } =
+    await chrome.storage.session.get(['lastActivity', 'prevActivity', 'lastCookieRemoval']);
+  const now = Date.now();
+  let idleMs = null;
+  if (lastActivity && now - lastActivity >= 15000) idleMs = now - lastActivity;
+  else if (lastActivity && prevActivity) idleMs = lastActivity - prevActivity;
   addLog({
-    kind: /logout|signout|sign_out/i.test(prev) ? 'manual_logout' : 'kicked',
+    kind: 'kicked',
     from: prev,
-    to: u.pathname
+    to: u.pathname,
+    idleMin: idleMs == null ? null : Math.round(idleMs / 6000) / 10,
+    cookieCause: lastCookieRemoval && now - lastCookieRemoval.at < 120000 ? lastCookieRemoval.cause : null
   });
 });
 
@@ -82,6 +97,11 @@ chrome.tabs.onRemoved.addListener(tabId => chrome.storage.session.remove('tab_' 
 // ログイン画面に出ているメッセージ（例：「他の端末でログインされました」）を記録する
 let lastMsg = { text: '', at: 0 };
 chrome.runtime.onMessage.addListener(msg => {
+  if (msg && msg.type === 'activity') {
+    chrome.storage.session.get('lastActivity').then(({ lastActivity }) =>
+      chrome.storage.session.set({ prevActivity: lastActivity || null, lastActivity: Date.now() }));
+    return;
+  }
   if (!msg || msg.type !== 'login_page') return;
   const text = (msg.messages || []).join(' / ');
   const now = Date.now();

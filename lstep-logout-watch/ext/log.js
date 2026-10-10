@@ -20,7 +20,13 @@ function describe(l) {
       (l.cookies || []).map(c => `${c.name}：${c.session ? 'ブラウザを閉じるまで' : '期限 ' + fmtShort(c.expires)}`).join(' ／ ') || 'Lステップのログイン情報なし'];
     case 'cookie_removed': return ['ログイン状態が消えた：' + (CAUSE[l.cause] || l.cause),
       `${l.name}（${l.domain}${l.expires ? '・期限 ' + fmtShort(l.expires) : ''}）`];
-    case 'kicked': return ['ログイン画面に戻された', `${l.from} → ${l.to}`];
+    case 'kicked': {
+      const idle = l.idleMin == null ? '最後の操作：不明' : `最後の操作から ${l.idleMin < 1 ? '1分以内' : l.idleMin + '分後'}`;
+      const ck = !('cookieCause' in l) ? '' : l.cookieCause
+        ? `ログイン情報：消えた（${CAUSE[l.cookieCause] || l.cookieCause}）`
+        : 'ログイン情報：消えていない（Lステップ側でログインが無効になった）';
+      return ['ログイン画面に戻された', [idle, ck, `${l.from} → ${l.to}`].filter(Boolean).join(' ／ ')];
+    }
     case 'manual_logout': return ['自分でログアウト', `${l.from} → ${l.to}`];
     case 'login_page': return ['ログイン画面のメッセージ', (l.messages || []).join(' ／ ') || '（メッセージなし）'];
     default: return [l.kind, ''];
@@ -39,9 +45,14 @@ async function render() {
     const k = CAUSE[l.cause] || l.cause;
     byCause[k] = (byCause[k] || 0) + 1;
   });
+  const idles = logs.filter(l => l.kind === 'kicked' && l.idleMin != null).map(l => l.idleMin);
+  const idleTile = idles.length
+    ? `<div class="tile"><b style="font-size:18px">${Math.min(...idles)}〜${Math.max(...idles)}分</b><span>最後の操作から追い出されるまで</span></div>`
+    : '';
   const since = logs.length ? fmt(logs[0].t).slice(0, 19) : '—';
   document.getElementById('summary').innerHTML =
     `<div class="tile alert"><b>${kicked}</b><span>ログイン画面に戻された回数</span></div>` +
+    idleTile +
     Object.entries(byCause).map(([k, v]) => `<div class="tile"><b>${v}</b><span>消えた：${k}</span></div>`).join('') +
     `<div class="tile"><b style="font-size:16px">${since}</b><span>記録開始</span></div>`;
 
