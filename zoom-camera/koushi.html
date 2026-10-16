@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>【講師用】Zoomカメラトラブルの対応手順｜RISEサポート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf7f1; --paper-2:#f3eee4; --ink:#26203a; --ink-soft:#5d5675;
+    --accent:#2f6bd8; --accent-deep:#2453ad; --accent-soft:#e8eefc;
+    --coral:#e5673f; --coral-soft:#fdeee7; --green:#3d8f5f; --green-soft:#e7f4ec;
+    --line:#e2dccd; --radius:18px; --mark:#e2382c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:70px}
+  body{font-family:'Zen Kaku Gothic New',"Hiragino Sans",sans-serif;background:var(--paper);color:var(--ink);line-height:1.9;
+    background-image:radial-gradient(var(--line) 1px, transparent 1px);background-size:28px 28px;-webkit-text-size-adjust:100%}
+  a{color:var(--accent-deep)}
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(250,247,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .logo{font-weight:900;font-size:.95rem;text-decoration:none;color:var(--ink)}
+  .logo span{color:var(--accent)}
+  .topnav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+  .topnav a{font-size:.76rem;color:var(--ink-soft);text-decoration:none;padding:4px 10px;border-radius:999px;font-weight:700}
+  .topnav a:hover{background:var(--accent-soft);color:var(--accent-deep)}
+  .hero{max-width:880px;margin:0 auto;padding:44px 16px 10px}
+  .badge{display:inline-block;background:var(--ink);color:var(--paper);font-size:.72rem;font-weight:700;letter-spacing:.14em;padding:5px 14px;border-radius:999px;margin-bottom:16px}
+  .hero h1{font-size:clamp(1.6rem,5.2vw,2.6rem);font-weight:900;line-height:1.4}
+  .hero h1 .hl{color:var(--accent);text-decoration:underline;text-decoration-color:rgba(47,107,216,.25);text-decoration-thickness:10px;text-underline-offset:4px}
+  .hero p.lead{margin-top:16px;color:var(--ink-soft);font-size:.98rem;max-width:640px}
+  .hero .meta{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+  .chip{font-size:.76rem;font-weight:700;padding:6px 12px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink-soft)}
+  .chip.accent{border-color:var(--accent);color:var(--accent-deep);background:var(--accent-soft)}
+  main{max-width:880px;margin:0 auto;padding:0 16px 90px}
+  section{margin-top:56px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .step-num{flex-shrink:0;font-size:2.3rem;font-weight:900;color:transparent;-webkit-text-stroke:2px var(--accent);line-height:1}
+  .sec-head h2{font-size:clamp(1.2rem,3.4vw,1.55rem);font-weight:900;line-height:1.5}
+  .card{background:#fff;border:1.5px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:16px;box-shadow:0 2px 0 var(--line)}
+  .card h3{font-size:1.05rem;font-weight:900;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .card p{color:var(--ink-soft);font-size:.95rem}
+  .card p+p{margin-top:8px}
+  .card strong{color:var(--ink)}
+  .card ol,.card ul{padding-left:1.4em;color:var(--ink-soft);font-size:.95rem}
+  .card li{margin:6px 0}
+  .card li::marker{color:var(--accent);font-weight:900}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--mark);color:#fff;font-weight:900;font-size:.85rem;flex:none}
+  .steps{list-style:none;padding:0}
+  .steps li{display:flex;gap:12px;align-items:flex-start;margin:12px 0;color:var(--ink);font-size:.97rem}
+  .steps li .num{margin-top:4px}
+  .steps li small{display:block;color:var(--ink-soft);font-size:.86rem}
+  figure{margin:14px 0 6px;background:var(--paper-2);border-radius:14px;padding:10px;border:1px solid var(--line)}
+  figure img{width:100%;height:auto;display:block;border-radius:8px;background:#e9e4d8}
+  figure figcaption{font-size:.8rem;color:var(--ink-soft);margin-top:8px;text-align:center}
+  figure a{display:block}
+  @media(max-width:640px){figure figcaption:after{content:"（タップで拡大）"}}
+  .note{background:var(--coral-soft);border-radius:12px;padding:12px 16px;font-size:.9rem;color:var(--ink);margin-top:12px}
+  .note b{color:var(--coral)}
+  .ok{background:var(--green-soft);border-radius:12px;padding:12px 16px;font-size:.9rem;margin-top:12px}
+  .ok b{color:var(--green)}
+  /* tabs */
+  .tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 18px}
+  .tabs button{font-family:inherit;font-size:.92rem;font-weight:900;padding:12px 6px;border-radius:14px;border:2px solid var(--line);background:#fff;color:var(--ink-soft);cursor:pointer;line-height:1.3}
+  .tabs button span{display:block;font-size:1.3rem;margin-bottom:2px}
+  .tabs button.active{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-deep)}
+  .pane{display:none}.pane.active{display:block}
+  .pane-title{font-size:.8rem;font-weight:900;letter-spacing:.1em;color:var(--accent-deep);margin-bottom:8px}
+  /* copy box */
+  .copybox{background:var(--paper-2);border:1px dashed var(--line);border-radius:12px;padding:14px;font-size:.9rem;white-space:pre-wrap;color:var(--ink);line-height:1.7}
+  .btn{font-family:inherit;font-weight:900;font-size:.9rem;padding:10px 18px;border-radius:999px;border:0;background:var(--accent);color:#fff;cursor:pointer;margin-top:10px}
+  .btn:active{transform:translateY(1px)}
+  .links a{display:block;font-size:.88rem;margin:4px 0}
+  footer{max-width:880px;margin:0 auto;padding:0 16px 60px;color:var(--ink-soft);font-size:.78rem}
+  @media(max-width:640px){
+    html{scroll-padding-top:130px}
+    .card{padding:16px}
+    .tabs{grid-template-columns:repeat(2,1fr)}
+    .sec-head{gap:10px}
+  }
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <a class="logo" href="#top">RISE <span>サポート</span></a>
+  <nav class="topnav"><a href="#teacher">確認の順番</a><a href="#send">送る文面</a><a href="./" target="_blank" rel="noopener">受講生向けページ ↗</a></nav>
+</div></header>
+<div class="hero" id="top">
+  <span class="badge">講師用</span>
+  <h1>Zoomで<span class="hl">カメラが映らない</span>ときの対応手順</h1>
+  <p class="lead">面談中にカメラが映らない受講生の方がいたときの、確認の順番と、お送りする文面です。受講生の方には <a href="./" target="_blank" rel="noopener">受講生向けページ</a> をお送りください（このページは講師用なので、受講生の方には送らないでください）。</p>
+  <div class="meta"><span class="chip accent">講師・運営向け</span><span class="chip">受講生向けページ：<code>…/zoom-camera/</code></span></div>
+</div>
+<main>
+<!-- ⑤ -->
+<section id="teacher">
+  <div class="sec-head"><div class="step-num">01</div><h2>面談中の確認の順番</h2></div>
+  <div class="card">
+    <h3>🗣 この順番なら5分以内に切り分けられます</h3>
+    <ol>
+      <li><strong>「今は、パソコンとスマホのどちらでご参加ですか？」</strong>（Windows／Mac／iPhone／Androidまで伺ってください）</li>
+      <li><strong>「画面の下のビデオのボタンに、赤い斜線は付いていますか？」</strong> → 付いていれば、押していただきます（①）</li>
+      <li>パソコンの方には <strong>「ビデオボタンの横の「^」を押すと、カメラの名前は出ますか？」</strong> → 出ない＝パソコンがカメラを認識していません（②へ）／出る＝別のカメラを選んでいただきます</li>
+      <li>機種別のページをお送りして、一緒に設定を確認します（下の文面をお使いください）</li>
+      <li>5分で直らない場合は、<strong>③の2台方式</strong>（スマホで音声とビデオ、パソコンで画面共有）をご案内するか、<strong>カメラオフのまま面談を進めてください</strong>。スマホが手元にあれば、その場で2台方式に切り替えられます</li>
+    </ol>
+    <div class="note"><b>前回スマホで参加されていた方</b>は、パソコンにカメラが無い可能性が高いです。「前回はスマホからでしたよね？」と伺うと早く切り分けられます。</div>
+  </div>
+</section>
+<section id="send">
+  <div class="sec-head"><div class="step-num">02</div><h2>受講生の方にお送りする文面</h2></div>
+  <div class="card">
+    <h3>💬 コピーしてそのままお使いください</h3>
+    <div class="copybox" id="msg1">カメラが映らないときの直し方をまとめたページです👇
+https://ryoya9595.github.io/rise-guide/zoom-camera/
+
+上から順番に試してみてください！
+直らなくても、スマホとパソコンの2台で入る方法（スマホで音声とビデオ・パソコンで画面共有）や、カメラオフのままでも面談できますので大丈夫ですよ🙆‍♀️</div>
+    <button class="btn" data-copy="msg1">この文面をコピー</button>
+    <p style="margin-top:14px"><strong>機種が分かっている場合</strong>は、URLの後ろに次の文字を付けると、その機種のタブが開いた状態で届きます。</p>
+    <ul>
+      <li>Windows：<code>…/zoom-camera/#win</code></li>
+      <li>Mac：<code>…/zoom-camera/#mac</code></li>
+      <li>iPhone：<code>…/zoom-camera/#iphone</code></li>
+      <li>Android：<code>…/zoom-camera/#android</code></li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer>
+  <p>RISE サポート（講師用）｜最終更新 2026-10-16｜画面の図はイメージです。OSやZoomのバージョンによって、名前や並びが少し違うことがあります。Zoom・Windows・macOS・iOS・Androidは各社の商標です。</p>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-copy]').forEach(btn=>btn.addEventListener('click',async()=>{
+    const t=document.getElementById(btn.dataset.copy).innerText;
+    try{await navigator.clipboard.writeText(t);btn.textContent='コピーしました ✓';}catch(e){btn.textContent='長押しで選択してコピーしてください';}
+    setTimeout(()=>btn.textContent='この文面をコピー',2000);
+  }));
+})();
+</script>
+</body>
+</html>
