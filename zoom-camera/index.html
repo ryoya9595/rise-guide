@@ -272,12 +272,14 @@ https://ryoya9595.github.io/rise-guide/zoom-camera/
     if(!panes[os]) os='win';
     tabs.forEach(b=>b.classList.toggle('active',b.dataset.os===os));
     Object.entries(panes).forEach(([k,id])=>document.getElementById(id).classList.toggle('active',k===os));
-    if(scroll){document.getElementById('byos').scrollIntoView({behavior:'smooth'});}
+    if(scroll){setTimeout(()=>document.getElementById('byos').scrollIntoView({behavior:'smooth'}),250);}
   }
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
   tabs.forEach(b=>b.addEventListener('click',()=>{show(b.dataset.os,false);history.replaceState(null,'','#'+b.dataset.os);}));
   const h=(location.hash||'').replace('#','');
   // 機種のハッシュで届いたら、そのタブを開いて機種別セクションへ
-  if(panes[h]){show(h,true);} else {
+  window.addEventListener('hashchange',()=>{const x=(location.hash||'').replace('#','');if(panes[x]) show(x,true);});
+  if(panes[h]){window.addEventListener('load',()=>show(h,true));show(h,false);} else {
     const ua=navigator.userAgent;
     show(/iPhone|iPad/.test(ua)?'iphone':/Android/.test(ua)?'android':/Macintosh/.test(ua)?'mac':'win',false);
   }
