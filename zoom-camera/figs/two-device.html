@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>スマホ＋PCの二刀流</title>
+<link rel="stylesheet" href="fig-base.css">
+<style>
+  body{font-family:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;width:1100px;height:560px;padding:20px;color:#26203a;background:#faf7f1}
+  .stage{width:1060px;height:520px}
+  .box{position:absolute;top:60px;width:380px;height:360px;border-radius:22px;background:#fff;border:2px solid #e2dccd;padding:24px;text-align:center}
+  .box.l{left:40px}.box.r{right:40px}
+  .box h3{font-size:22px;font-weight:900;margin-bottom:6px}
+  .box .role{display:inline-block;background:#eceafb;color:#463aa8;font-weight:700;border-radius:999px;padding:4px 14px;font-size:14px;margin-bottom:14px}
+  .dev{height:150px;display:flex;align-items:center;justify-content:center}
+  .box ul{text-align:left;list-style:none;font-size:14.5px;white-space:nowrap;line-height:1.8;margin-top:6px}
+  .box li:before{content:"✔ ";color:#3d8f5f;font-weight:900}
+  .box li.ng:before{content:"✖ ";color:#e2382c}
+  .mid{position:absolute;left:430px;top:60px;width:200px;height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+  .mid .zoom{width:150px;height:110px;border-radius:26px;text-align:center;line-height:1.3;background:#2d8cff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;box-shadow:0 10px 24px rgba(45,140,255,.35)}
+  .mid .arr{font-size:30px;color:#999}
+  .title{position:absolute;left:0;right:0;top:6px;text-align:center;font-size:20px;font-weight:900}
+  .foot{position:absolute;left:40px;right:40px;bottom:14px;background:#fdeee7;border-radius:14px;padding:12px 18px;font-size:15px;line-height:1.7}
+  .foot b{color:#e5673f}
+</style></head>
+<body data-size="1100x560">
+<div class="stage">
+  <div class="title">PCにカメラが無いとき：同じミーティングに「2台」で入る</div>
+  <div class="box l">
+    <h3>📱 スマホ</h3><div class="role">顔と声の担当</div>
+    <div class="dev"><svg width="90" height="150" viewBox="0 0 90 150"><rect x="4" y="4" width="82" height="142" rx="16" fill="#1b1b1f"/><rect x="12" y="18" width="66" height="112" rx="6" fill="#2b2b31"/><circle cx="45" cy="74" r="20" fill="#4a5bd6"/><text x="45" y="81" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">あ</text></svg></div>
+    <ul><li>ビデオ：オン</li><li>マイク：オン</li><li>スピーカー：オン</li></ul>
+  </div>
+  <div class="mid"><span class="arr">→</span><div class="zoom">Zoom<br>ミーティング</div><span class="arr">←</span></div>
+  <div class="box r">
+    <h3>💻 PC</h3><div class="role">画面共有の担当</div>
+    <div class="dev"><svg width="190" height="130" viewBox="0 0 190 130"><rect x="20" y="6" width="150" height="96" rx="8" fill="#1b1b1f"/><rect x="28" y="14" width="134" height="80" rx="4" fill="#2b2b31"/><rect x="40" y="26" width="110" height="56" rx="3" fill="#f3eee4"/><rect x="4" y="104" width="182" height="12" rx="4" fill="#3a3a42"/></svg></div>
+    <ul><li>画面共有だけ使う</li><li class="ng">マイク：ミュート</li><li class="ng">スピーカー：オフ（ハウリング防止）</li></ul>
+  </div>
+  <div class="foot">💡 スマホは<b>同じミーティングURL</b>から入るだけ。名前は「〇〇（スマホ）」にすると講師が分かりやすい。<b>カメラは必須ではない</b>ので、どうしても難しければカメラオフのままでも面談はできます。</div>
+</div>
+</body></html>

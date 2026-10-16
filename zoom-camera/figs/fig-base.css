@@ -1,0 +1,20 @@
+/* 図解の共通部品：注釈（赤丸・番号・吹き出し）と書き出し用の下地 */
+:root{ --mark:#e2382c; --note-font:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:transparent}
+.stage{position:relative}
+.mark{position:absolute;border:3px solid var(--mark);border-radius:999px;pointer-events:none;
+  box-shadow:0 0 0 3px rgba(255,255,255,.75)}
+.mark.rect{border-radius:12px}
+.badge{position:absolute;width:30px;height:30px;border-radius:50%;background:var(--mark);color:#fff;
+  font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;
+  border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.25);font-family:var(--note-font);z-index:5}
+.callout{position:absolute;background:var(--mark);color:#fff;font-size:14px;font-weight:700;padding:6px 12px;border-radius:8px;
+  font-family:var(--note-font);box-shadow:0 2px 6px rgba(0,0,0,.25);white-space:nowrap;z-index:5;line-height:1.5}
+.callout:after{content:"";position:absolute;width:0;height:0;border:8px solid transparent}
+.callout.l:after{right:100%;top:50%;margin-top:-8px;border-right-color:var(--mark)}
+.callout.r:after{left:100%;top:50%;margin-top:-8px;border-left-color:var(--mark)}
+.callout.b:after{top:100%;left:50%;margin-left:-8px;border-top-color:var(--mark)}
+.callout.t:after{bottom:100%;left:50%;margin-left:-8px;border-bottom-color:var(--mark)}
+.callout.t.ar:after,.callout.b.ar:after{left:auto;right:26px;margin-left:0}
+.callout.t.al:after,.callout.b.al:after{left:26px;margin-left:0}

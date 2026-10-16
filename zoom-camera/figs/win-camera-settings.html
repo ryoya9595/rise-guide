@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Windows 11 設定 › プライバシーとセキュリティ › カメラ（図解）</title>
+<link rel="stylesheet" href="fig-base.css">
+<style>
+  :root{
+    --win-bg:#f3f3f3; --win-pane:#fbfbfb; --win-card:#ffffff; --win-line:#e5e5e5;
+    --win-ink:#1b1b1b; --win-ink-2:#616161; --win-blue:#0067c0; --win-sel:#eaeaea;
+    --mark:#e2382c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:transparent}
+  body{
+    font-family:"Yu Gothic UI","Meiryo UI","Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;
+    color:var(--win-ink); font-size:14px; line-height:1.5;
+    width:1200px; height:780px; padding:20px;
+  }
+  .stage{position:relative;width:1160px;height:740px}
+  /* ---- window ---- */
+  .win{
+    position:absolute;left:0;top:0;width:1160px;height:740px;
+    background:var(--win-bg);border:1px solid #cfcfcf;border-radius:10px;overflow:hidden;
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
+  }
+  .titlebar{height:40px;display:flex;align-items:center;padding:0 16px;font-size:13px;background:var(--win-bg)}
+  .titlebar .t{flex:1;display:flex;align-items:center;gap:10px}
+  .titlebar .gear{width:16px;height:16px;border-radius:50%;border:2px solid #555;position:relative}
+  .titlebar .gear:after{content:"";position:absolute;inset:3px;border-radius:50%;background:#555}
+  .wc{display:flex;gap:28px;color:#333;font-size:12px}
+  .layout{display:flex;height:700px}
+  /* ---- sidebar ---- */
+  .side{width:300px;padding:6px 10px 10px 18px;background:var(--win-bg)}
+  .acct{display:flex;gap:12px;align-items:center;padding:10px 8px 14px}
+  .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#8ab4f8,#4c7ad1)}
+  .acct .n{font-size:15px;font-weight:600}
+  .acct .m{font-size:12px;color:var(--win-ink-2)}
+  .search{height:32px;border:1px solid #d9d9d9;border-bottom:2px solid #8a8a8a;border-radius:5px;background:#fff;
+    display:flex;align-items:center;padding:0 10px;color:#777;font-size:13px;margin:4px 8px 14px}
+  .search span{margin-left:auto;font-size:14px;color:#555}
+  .nav{list-style:none}
+  .nav li{display:flex;align-items:center;gap:14px;height:36px;padding:0 10px;border-radius:5px;font-size:14px;position:relative;margin-bottom:2px}
+  .nav li.sel{background:var(--win-sel)}
+  .nav li.sel:before{content:"";position:absolute;left:0;top:10px;width:3px;height:16px;border-radius:2px;background:var(--win-blue)}
+  .ico{width:18px;height:18px;border-radius:5px;flex:none}
+  /* ---- main ---- */
+  .main{flex:1;padding:14px 40px 0 28px;overflow:hidden}
+  .crumb{font-size:13px;color:var(--win-ink-2);display:flex;gap:10px;align-items:center}
+  .crumb b{font-weight:400}
+  h1{font-size:26px;font-weight:600;margin:4px 0 18px;letter-spacing:.01em}
+  .card{background:var(--win-card);border:1px solid var(--win-line);border-radius:5px;padding:14px 18px;display:flex;align-items:center;gap:16px;margin-bottom:6px;min-height:64px}
+  .card .ci{width:20px;height:20px;flex:none}
+  .card .tx{flex:1}
+  .card .tx .h{font-size:14px}
+  .card .tx .s{font-size:12px;color:var(--win-ink-2);margin-top:2px}
+  .right{display:flex;align-items:center;gap:14px;flex:none}
+  .onoff{font-size:13px;min-width:28px;text-align:right}
+  .tg{width:40px;height:20px;border-radius:10px;background:var(--win-blue);position:relative;flex:none}
+  .tg:after{content:"";position:absolute;right:4px;top:4px;width:12px;height:12px;border-radius:50%;background:#fff}
+  .chev{width:10px;height:10px;border-right:1.5px solid #333;border-bottom:1.5px solid #333;transform:rotate(45deg);margin:0 6px 4px 8px}
+  .chev.up{transform:rotate(-135deg);margin-top:8px}
+  .sub{background:#f7f7f7;border:1px solid var(--win-line);border-top:0;border-radius:0 0 5px 5px;margin:-6px 0 8px;padding:6px 18px 6px 54px}
+  .row{display:flex;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid #ececec;font-size:13px}
+  .row:last-child{border-bottom:0}
+  .row .app{width:22px;height:22px;border-radius:5px;flex:none}
+  .row .tx{flex:1}
+  .row .d{font-size:11.5px;color:var(--win-ink-2)}
+  .note{font-size:12px;color:var(--win-ink-2);margin:2px 0 8px 54px;line-height:1.5}
+</style>
+</head>
+<body data-size="1200x780">
+<div class="stage">
+  <div class="win">
+    <div class="titlebar">
+      <div class="t"><span class="gear"></span>設定</div>
+      <div class="wc"><span>—</span><span>☐</span><span>✕</span></div>
+    </div>
+    <div class="layout">
+      <aside class="side">
+        <div class="acct">
+          <div class="avatar"></div>
+          <div><div class="n">ユーザー名</div><div class="m">●●●●@example.com</div></div>
+        </div>
+        <div class="search">設定の検索<span>⌕</span></div>
+        <ul class="nav">
+          <li><span class="ico" style="background:#2b7cd3"></span>システム</li>
+          <li><span class="ico" style="background:#1f8bd0"></span>Bluetooth とデバイス</li>
+          <li><span class="ico" style="background:#2c6fc9"></span>ネットワークとインターネット</li>
+          <li><span class="ico" style="background:#e67e22"></span>個人用設定</li>
+          <li><span class="ico" style="background:#5b6b7a"></span>アプリ</li>
+          <li><span class="ico" style="background:#3aa35b"></span>アカウント</li>
+          <li><span class="ico" style="background:#2d9cdb"></span>時刻と言語</li>
+          <li><span class="ico" style="background:#7d7d7d"></span>ゲーム</li>
+          <li><span class="ico" style="background:#2b7cd3"></span>アクセシビリティ</li>
+          <li class="sel"><span class="ico" style="background:#6c6c6c"></span>プライバシーとセキュリティ</li>
+          <li><span class="ico" style="background:#2b7cd3"></span>Windows Update</li>
+        </ul>
+      </aside>
+      <main class="main">
+        <div class="crumb"><b>プライバシーとセキュリティ</b><span>›</span></div>
+        <h1>カメラ</h1>
+
+        <div class="card">
+          <svg class="ci" viewBox="0 0 20 20"><rect x="2" y="5" width="12" height="10" rx="2" fill="none" stroke="#333" stroke-width="1.5"/><path d="M14 8l4-2v8l-4-2z" fill="none" stroke="#333" stroke-width="1.5"/></svg>
+          <div class="tx"><div class="h">カメラへのアクセス</div><div class="s">このデバイスを使用しているすべてのユーザー</div></div>
+          <div class="right"><span class="onoff">オン</span><span class="tg"></span><span class="chev"></span></div>
+        </div>
+
+        <div class="card" id="c2">
+          <svg class="ci" viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="3" fill="none" stroke="#333" stroke-width="1.5"/><rect x="6" y="6" width="3" height="3" fill="#333"/><rect x="11" y="6" width="3" height="3" fill="#333"/><rect x="6" y="11" width="3" height="3" fill="#333"/></svg>
+          <div class="tx"><div class="h">アプリにカメラへのアクセスを許可する</div></div>
+          <div class="right"><span class="onoff">オン</span><span class="tg"></span><span class="chev up"></span></div>
+        </div>
+        <div class="sub">
+          <div class="row"><span class="app" style="background:#3b7dd8"></span><div class="tx">カメラ</div><div class="right"><span class="onoff">オン</span><span class="tg"></span></div></div>
+          <div class="row"><span class="app" style="background:#5059c9"></span><div class="tx">Microsoft Teams</div><div class="right"><span class="onoff">オン</span><span class="tg"></span></div></div>
+          <div class="row"><span class="app" style="background:#1a73e8"></span><div class="tx">Microsoft Edge</div><div class="right"><span class="onoff">オン</span><span class="tg"></span></div></div>
+        </div>
+
+        <div class="card" id="c3">
+          <svg class="ci" viewBox="0 0 20 20"><rect x="2" y="4" width="16" height="10" rx="1.5" fill="none" stroke="#333" stroke-width="1.5"/><path d="M7 17h6" stroke="#333" stroke-width="1.5"/></svg>
+          <div class="tx"><div class="h">デスクトップ アプリがカメラにアクセスできるようにする</div></div>
+          <div class="right"><span class="onoff">オン</span><span class="tg"></span><span class="chev up"></span></div>
+        </div>
+        <div class="sub">
+          <div class="row"><span class="app" style="background:#2d8cff"></span><div class="tx">Zoom<div class="d">最終アクセス日時: 2026/10/16 9:28</div></div></div>
+          <div class="row"><span class="app" style="background:#4285f4"></span><div class="tx">Google Chrome<div class="d">最終アクセス日時: 2026/10/15 20:10</div></div></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- 注釈（赤丸・番号・吹き出し）: data-target の要素に自動で吸い付く -->
+  <div class="mark" data-target=".nav li.sel" data-pad="6"></div>
+  <div class="badge" data-target=".nav li.sel" data-at="left">1</div>
+
+  <div class="mark" data-target="#c2 .right" data-pad="10"></div>
+  <div class="badge" data-target="#c2 .right" data-at="right">2</div>
+  <div class="callout r" data-target="#c2 .right" data-at="left">「オン」になっているか</div>
+
+  <div class="mark" data-target="#c3 .right" data-pad="10"></div>
+  <div class="badge" data-target="#c3 .right" data-at="right">3</div>
+  <div class="callout t" data-target="#c3 .right" data-at="below" data-dx="-90">Zoomはここ！「オン」が必須</div>
+<script src="annotate.js"></script>
+</div>
+</body>
+</html>

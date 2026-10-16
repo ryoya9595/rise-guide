@@ -1,0 +1,37 @@
+/* スマホ枠の共通スタイル */
+body{font-family:"Hiragino Sans","SF Pro JP","Roboto","Noto Sans JP",sans-serif;padding:20px;color:#000;font-size:15px}
+.phone{position:absolute;width:390px;height:800px;border-radius:48px;background:#111;padding:12px;box-shadow:0 18px 40px rgba(0,0,0,.28)}
+.screen{width:100%;height:100%;border-radius:38px;overflow:hidden;position:relative}
+.sb{height:48px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px 6px;font-size:14px;font-weight:600}
+.notch{position:absolute;left:50%;top:10px;width:110px;height:30px;background:#111;border-radius:16px;transform:translateX(-50%)}
+/* iOS */
+.ios .screen{background:#f2f2f7}
+.ios .nav{height:44px;display:flex;align-items:center;padding:0 10px;position:relative;font-size:17px;font-weight:600;justify-content:center}
+.ios .nav .back{position:absolute;left:12px;color:#007aff;font-weight:400;font-size:16px}
+.ios .sec{margin:22px 16px 0;font-size:13px;color:#6d6d72;padding-left:4px}
+.ios .group{margin:8px 16px 0;background:#fff;border-radius:12px;overflow:hidden}
+.ios .row{display:flex;align-items:center;gap:12px;height:46px;padding:0 14px 0 14px;border-bottom:.5px solid #d8d8dc;font-size:16px}
+.ios .row:last-child{border-bottom:0}
+.ios .ai{width:29px;height:29px;border-radius:7px;flex:none}
+.ios .nm{flex:1;white-space:nowrap;font-size:15.5px}
+.ios .val{color:#8a8a8e;font-size:15px}
+.ios .chev{color:#c4c4c7;font-size:16px}
+.ios .sw{width:51px;height:31px;border-radius:16px;background:#34c759;position:relative;flex:none}
+.ios .sw:after{content:"";position:absolute;right:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+.ios .sw.off{background:#e9e9eb}.ios .sw.off:after{right:auto;left:2px}
+/* Android */
+.and .screen{background:#fff}
+.and .nav{height:56px;display:flex;align-items:center;padding:0 16px;gap:20px;font-size:20px}
+.and .nav .back{font-size:22px}
+.and h2{font-size:24px;font-weight:400;padding:12px 24px 4px}
+.and .appline{display:flex;align-items:center;gap:12px;padding:6px 24px 14px;color:#444}
+.and .appline .ai{width:36px;height:36px;border-radius:9px;background:#2d8cff}
+.and .sec{font-size:14px;color:#1a73e8;font-weight:600;padding:14px 24px 6px}
+.and .row{display:flex;align-items:center;gap:18px;height:54px;padding:0 24px;font-size:16px}
+.and .row .ic{width:24px;height:24px;border-radius:5px;background:#5f6368;flex:none}
+.and .sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:28px 28px 0 0;box-shadow:0 -6px 30px rgba(0,0,0,.25);padding:22px 24px 30px}
+.and .sheet h3{font-size:20px;font-weight:400;margin-bottom:14px}
+.and .opt{display:flex;align-items:center;gap:16px;height:52px;font-size:16px}
+.and .rad{width:20px;height:20px;border-radius:50%;border:2px solid #5f6368;flex:none;position:relative}
+.and .rad.on{border-color:#1a73e8}.and .rad.on:after{content:"";position:absolute;inset:3px;border-radius:50%;background:#1a73e8}
+.and .dim{position:absolute;inset:0;background:rgba(0,0,0,.32)}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>Zoom スマホアプリ 会議中の画面</title>
+<link rel="stylesheet" href="fig-base.css"><link rel="stylesheet" href="phone-shared.css">
+<style>
+  body{width:760px;height:840px}.stage{width:720px;height:800px}
+  .zm .screen{background:#1b1b1f;color:#fff}
+  .zm .top{display:flex;align-items:center;justify-content:space-between;padding:6px 18px;font-size:13px}
+  .zm .leave{background:#e02e2e;color:#fff;padding:6px 12px;border-radius:8px;font-weight:600}
+  .zm .tile{margin:14px 14px 0;height:500px;background:#2b2b31;border-radius:14px;display:flex;align-items:center;justify-content:center;position:relative}
+  .zm .av{width:120px;height:120px;border-radius:50%;background:#d67a3a;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700}
+  .zm .self{position:absolute;right:14px;bottom:14px;width:96px;height:130px;background:#3a3a42;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#bbb}
+  .zm .bar{position:absolute;left:0;right:0;bottom:0;height:90px;background:#121214;display:flex;justify-content:space-around;align-items:center;padding:0 6px 10px}
+  .zm .btn{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:10.5px;color:#e8e8ea;width:70px;white-space:nowrap}
+  .zm .btn svg{width:28px;height:28px}
+</style></head>
+<body data-size="760x840">
+<div class="stage">
+<div class="phone zm"><div class="screen">
+  <div class="sb"><span>9:41</span><span>●●● ⌔ ▮</span></div><div class="notch"></div>
+  <div class="top"><span>🔒 Zoom</span><span class="leave">退出</span></div>
+  <div class="tile"><div class="av">講</div><div class="self">自分（ビデオ停止中）</div></div>
+  <div class="bar">
+    <div class="btn"><svg viewBox="0 0 26 26" fill="none" stroke="#e8e8ea" stroke-width="1.8"><rect x="9" y="3" width="8" height="13" rx="4"/><path d="M5 12a8 8 0 0 0 16 0M13 20v4M9 24h8"/></svg>ミュート</div>
+    <div class="btn" id="video"><svg viewBox="0 0 26 26" fill="none" stroke="#e8e8ea" stroke-width="1.8"><rect x="3" y="7" width="14" height="12" rx="2"/><path d="M17 11l6-3v10l-6-3z"/><path d="M4 23L22 3" stroke="#ff4d4d" stroke-width="2.4"/></svg>ビデオの開始</div>
+    <div class="btn" style="color:#3ddc84"><svg viewBox="0 0 26 26" fill="none" stroke="#3ddc84" stroke-width="1.8"><rect x="3" y="5" width="20" height="13" rx="2"/><path d="M13 9v6M10 12l3-3 3 3"/></svg>共有</div>
+    <div class="btn"><svg viewBox="0 0 26 26" fill="none" stroke="#e8e8ea" stroke-width="1.8"><circle cx="10" cy="9" r="4"/><path d="M3 22c0-4 3-7 7-7s7 3 7 7M18 7a3 3 0 1 1 0 6M23 22c0-3-2-6-5-7"/></svg>参加者</div>
+    <div class="btn"><svg viewBox="0 0 26 26" fill="#e8e8ea"><circle cx="6" cy="13" r="2"/><circle cx="13" cy="13" r="2"/><circle cx="20" cy="13" r="2"/></svg>詳細</div>
+  </div>
+</div></div>
+  <div class="mark" data-target="#video" data-pad="6"></div>
+  <div class="badge" data-target="#video" data-at="left" data-dx="4" data-dy="2">1</div>
+  <div class="callout l" data-target="#video" data-at="right" data-dx="210" data-dy="-6" style="white-space:normal;width:270px;font-size:14px">赤い斜線が付いていたら押す。<br>消えたら自分が映る</div>
+  <div class="callout l" data-target=".zm .self" data-at="right" data-dx="30" style="white-space:normal;width:270px;font-size:13px;background:#444">ボタンが見えない時は<br>画面を1回タップすると出てくる</div>
+  <div class="callout l" data-target=".zm .top" data-at="right" data-dx="18" data-dy="46" style="white-space:normal;width:270px;font-size:13px;background:#444">初めてZoomを開いた時に「カメラへのアクセスを求めています」が出たら<b>「許可」</b>を押す</div>
+</div>
+<script src="annotate.js"></script>
+</body></html>

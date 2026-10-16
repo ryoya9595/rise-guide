@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>Zoom 設定 › ビデオ（PC）</title>
+<link rel="stylesheet" href="fig-base.css">
+<style>
+  body{font-family:"Hiragino Sans","Yu Gothic UI","Segoe UI","Noto Sans JP",sans-serif;width:1100px;height:700px;padding:20px;color:#232333;font-size:14px}
+  .stage{width:1060px;height:660px}
+  .win{position:absolute;inset:0;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.22);border:1px solid #d8d8de;display:flex;flex-direction:column}
+  .top{height:40px;background:#f4f4f7;border-bottom:1px solid #e3e3e8;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;position:relative}
+  .top .x{position:absolute;right:14px;color:#777}
+  .body{flex:1;display:flex}
+  .side{width:220px;background:#f7f7fa;border-right:1px solid #e6e6eb;padding:10px 8px}
+  .side div{padding:8px 14px;border-radius:6px;font-size:14px;color:#333;margin-bottom:2px}
+  .side .sel{background:#e6e9ff;color:#1d3fcf;font-weight:600}
+  .main{flex:1;padding:18px 26px}
+  .preview{height:300px;background:#2d2d35;border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative}
+  .preview .sil{width:150px;height:150px;border-radius:50%;background:#4a5bd6;display:flex;align-items:center;justify-content:center;color:#fff;font-size:54px;font-weight:700}
+  .preview .lbl{position:absolute;left:12px;top:10px;color:#ddd;font-size:12px}
+  .row{display:flex;align-items:center;gap:14px;margin-top:16px}
+  .row label{width:70px;font-weight:600}
+  .dd{flex:1;max-width:420px;height:34px;border:1px solid #c9c9d2;border-radius:6px;display:flex;align-items:center;padding:0 12px;justify-content:space-between;background:#fff}
+  .dd span.c{width:8px;height:8px;border-right:1.5px solid #333;border-bottom:1.5px solid #333;transform:rotate(45deg);margin-top:-4px}
+  .checks{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;font-size:13.5px;color:#333}
+  .checks div{display:flex;gap:8px;align-items:center}
+  .cb{width:16px;height:16px;border:1.5px solid #888;border-radius:3px;background:#fff;position:relative}
+  .cb.on{background:#1d3fcf;border-color:#1d3fcf}
+  .cb.on:after{content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
+</style></head>
+<body data-size="1100x700">
+<div class="stage">
+  <div class="win">
+    <div class="top">設定<span class="x">✕</span></div>
+    <div class="body">
+      <aside class="side">
+        <div>一般</div><div class="sel" id="tab">ビデオ</div><div>オーディオ</div><div>画面共有</div><div>チームチャット</div><div>Zoom Apps</div><div>背景とエフェクト</div><div>レコーディング</div><div>プロフィール</div><div>統計情報</div><div>キーボードショートカット</div><div>アクセシビリティ</div>
+      </aside>
+      <main class="main">
+        <div class="preview"><span class="lbl">プレビュー</span><div class="sil">あ</div></div>
+        <div class="row"><label>カメラ</label><div class="dd" id="dd"><span>FaceTime HDカメラ（内蔵）</span><span class="c"></span></div></div>
+        <div class="checks">
+          <div><span class="cb"></span>オリジナルサイズ</div><div><span class="cb on"></span>HD</div>
+          <div><span class="cb on"></span>マイビデオをミラーリング</div><div><span class="cb"></span>外見を補正</div>
+          <div><span class="cb"></span>低照度に対して調整</div><div><span class="cb on"></span>ミーティング参加時にビデオをオフにする</div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class="mark" data-target="#tab" data-pad="6"></div>
+  <div class="badge" data-target="#tab" data-at="left">1</div>
+  <div class="mark" data-target="#dd" data-pad="8" style="border-radius:14px"></div>
+  <div class="badge" data-target="#dd" data-at="right">2</div>
+  <div class="callout l" data-target="#dd" data-at="right" data-dx="-6" style="white-space:normal;width:300px;font-size:13.5px">ここを押して別のカメラを選ぶ。<br>上のプレビューに自分が映ればOK</div>
+</div>
+<script src="annotate.js"></script>
+</body></html>
