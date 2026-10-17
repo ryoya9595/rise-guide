@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>Zoom面談の予約のしかた｜RISE ZOOM面談</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#fbf3f1; --ink:#2b2a28; --muted:#6f6862; --coral:#c4513f; --coral-soft:#fde9e4; --line:#f0e1dc; --green:#4e9a23; --green-soft:#eaf5e3; --orange:#f28c28; --mark:#e2382c; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Zen Kaku Gothic New',"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.85;-webkit-text-size-adjust:100%}
+  main{max-width:560px;margin:0 auto;padding:24px 16px 48px}
+  h1,h2,h3{margin:0;line-height:1.4}
+  .eyebrow{text-align:center;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--coral);margin:0 0 14px}
+  .hero{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 18px;margin-bottom:16px}
+  .hero h1{font-size:25px;color:var(--coral);font-weight:900}
+  .hero p{margin:10px 0 0;font-size:15px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 18px;margin-bottom:16px}
+  .card h2{font-size:16px;margin-bottom:12px;padding-left:10px;border-left:4px solid var(--coral);font-weight:900}
+  .card p{margin:0 0 10px;font-size:15px}.card p:last-child{margin-bottom:0}
+  .small{font-size:13px;color:var(--muted);line-height:1.7}
+  /* ボタン */
+  .cta{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--coral);color:#fff;text-decoration:none;font-weight:900;font-size:17px;padding:16px 18px;border-radius:14px;box-shadow:0 3px 0 #9d3f31}
+  .cta small{display:block;font-size:12px;font-weight:500;opacity:.92;margin-top:2px}
+  .cta .arrow{flex:none;font-size:20px}
+  .genres{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+  .genres a{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--coral);border-radius:14px;padding:12px 14px;text-decoration:none;color:var(--ink)}
+  .genres a:active{background:var(--coral-soft)}
+  .genres .g-name{font-weight:900;font-size:16px;color:var(--coral);line-height:1.3}
+  .genres .g-desc{display:block;font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:2px;font-weight:400}
+  .genres .g-arrow{margin-left:auto;flex:none;color:var(--coral);font-weight:900}
+  .tag{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:var(--orange);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+  .divider{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;font-weight:700;margin:18px 0 12px}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+  /* 手順 */
+  .steps{list-style:none;margin:0;padding:0}
+  .steps>li{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+  .steps>li:last-child{border-bottom:0;padding-bottom:0}
+  .num{flex:none;width:28px;height:28px;border-radius:50%;background:var(--mark);color:#fff;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .steps h3{font-size:15.5px;font-weight:900}
+  .steps p{font-size:14px;margin:4px 0 0}
+  /* 画面のイメージ（CSSで描く） */
+  .shot{margin:12px 0 0;background:#f4f4f4;border:1px solid #e3e3e3;border-radius:14px;padding:12px 12px 14px;font-family:"Hiragino Sans","Noto Sans JP",sans-serif;font-size:12px;color:#222;line-height:1.4}
+  .shot .bar{background:#fff;border-radius:10px;padding:8px 10px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:12px}
+  .shot .row{position:relative;background:#fff;border:1.5px dashed #bbb;border-radius:10px;padding:10px 12px;margin-bottom:8px;display:flex;align-items:center;gap:8px;font-weight:700;font-size:13px}
+  .shot .row.on{border:2px solid var(--green);background:#fff}
+  .shot .req{background:var(--orange);color:#fff;font-size:10px;padding:1px 6px;border-radius:4px}
+  .shot .btn{margin-left:auto;border:2px solid var(--green);color:var(--green);border-radius:999px;padding:3px 12px;font-size:12px;font-weight:900;background:#fff}
+  .shot .month{background:var(--green);color:#fff;border-radius:8px 8px 0 0;padding:8px;text-align:center;font-weight:700}
+  .shot .cal{background:#fff;border-radius:0 0 8px 8px;padding:8px 6px;display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:11px;text-align:center}
+  .shot .cal div{padding:5px 0;border-radius:6px;color:#999}
+  .shot .cal .ok{color:#222;font-weight:700;background:var(--green-soft)}
+  .shot .cal .ok.sel{background:var(--green);color:#fff}
+  .shot .times{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+  .shot .times div{background:#fff;border:1.5px solid var(--green);color:var(--green);border-radius:8px;padding:6px 0;text-align:center;font-weight:700;font-size:12px}
+  .shot .times .sel{background:var(--green);color:#fff}
+  .shot .list{background:#fff;border-radius:10px;overflow:hidden}
+  .shot .list div{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid #eee;font-size:13px}
+  .shot .list div:last-child{border-bottom:0}
+  .shot .av{width:22px;height:22px;border-radius:50%;background:#dcd3cf;flex:none}
+  .shot .pin{position:absolute;right:-6px;top:-10px;width:26px;height:26px;border-radius:50%;background:var(--mark);color:#fff;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+  .shot .cap{text-align:center;color:#666;font-size:11.5px;margin-top:8px}
+  .shot .field{background:#fff;border:1px solid #ddd;border-radius:8px;padding:8px 10px;margin-bottom:6px;color:#999;font-size:12px}
+  .shot .field b{color:#222;display:block;font-size:11px;margin-bottom:2px}
+  .shot .go{background:var(--green);color:#fff;text-align:center;border-radius:999px;padding:9px;font-weight:900;margin-top:6px}
+  /* よくあるご質問 */
+  details{border-bottom:1px solid var(--line);padding:10px 0}
+  details:last-of-type{border-bottom:0}
+  summary{cursor:pointer;font-weight:900;font-size:15px;list-style:none;display:flex;gap:8px;align-items:flex-start}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"Q";flex:none;color:var(--coral);font-weight:900}
+  details p{font-size:14px;margin:8px 0 0 22px}
+  details p+p{margin-top:6px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+  th,td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+  th{color:var(--coral);font-weight:900;white-space:nowrap}
+  .draft{background:#fff4cc;border:1px solid #f0d27a;border-radius:10px;padding:10px 14px;font-size:13px;margin:0 0 14px;color:#6b5200}
+  footer{text-align:center;font-size:12px;color:var(--muted);margin-top:28px}
+</style>
+</head>
+<body>
+<main>
+  <!-- 本番公開時にこの黄色い帯は削除する -->
+  <div class="draft">【見本】ボタンの飛び先はテスト用カレンダーです。本番公開時に本番の予約URLへ差し替えます。</div>
+
+  <p class="eyebrow">RISE ZOOM面談</p>
+
+  <section class="hero">
+    <h1>Zoom面談の予約のしかた</h1>
+    <p>下の<strong>ご相談内容のボタン</strong>を押すと、予約ページが開きます。あとは<strong>担当講師 → 日時</strong>の順に選ぶだけで、約1分で予約が完了します。</p>
+  </section>
+
+  <!-- はじめての方 -->
+  <section class="card" id="first">
+    <h2>はじめての方（初回面談）</h2>
+    <p>入会後、はじめての面談の方はこちらから。これからの方向性を講師と一緒に決めていきます。</p>
+    <a class="cta" href="https://liff.line.me/2007818946-gJEZdPeR?liff_id=2007818946-gJEZdPeR&is=Jx1BXsyxyl&option_key=sCMHGpur1o">
+      <span>初回面談を予約する<small>はじめての面談の方のみ選べます</small></span><span class="arrow">›</span>
+    </a>
+  </section>
+
+  <!-- 2回目以降 -->
+  <section class="card" id="genre">
+    <h2>2回目以降の方：ご相談内容を選んでください</h2>
+    <p>ご相談内容を選ぶと、<strong>そのご相談に対応できる講師だけ</strong>が表示されます。</p>
+    <ul class="genres">
+      <li><a href="https://liff.line.me/2007818946-gJEZdPeR?liff_id=2007818946-gJEZdPeR&is=Jx1BXsyxyl&option_key=mIdOA8CYPt"><span><span class="g-name">YouTube</span><span class="g-desc">YouTubeの運用・収益化のご相談</span></span><span class="g-arrow">›</span></a></li>
+      <li><a href="https://liff.line.me/2007818946-gJEZdPeR?liff_id=2007818946-gJEZdPeR&is=Jx1BXsyxyl&option_key=OM1ozUj4Tg"><span><span class="g-name">Instagram</span><span class="g-desc">Instagramの運用・収益化のご相談</span></span><span class="g-arrow">›</span></a></li>
+      <li><a href="https://liff.line.me/2007818946-gJEZdPeR?liff_id=2007818946-gJEZdPeR&is=Jx1BXsyxyl&option_key=b9SFvgjuzE"><span><span class="g-name">クライアントワーク</span><span class="g-desc">Webライター・動画編集などの受注のご相談</span></span><span class="g-arrow">›</span></a></li>
+      <li><a href="https://liff.line.me/2007818946-gJEZdPeR?liff_id=2007818946-gJEZdPeR&is=Jx1BXsyxyl&option_key=zBxVgFhWkg"><span><span class="g-name">note</span><span class="g-desc">noteでの発信・有料記事販売のご相談</span></span><span class="g-arrow">›</span></a></li>
+      <li><a href="https://liff.line.me/2007818946-gJEZdPeR?liff_id=2007818946-gJEZdPeR&is=Jx1BXsyxyl&option_key=CJN6n0ogIm"><span><span class="g-name">AI占い</span><span class="g-desc">AIを使った占い・鑑定ビジネスのご相談</span></span><span class="g-arrow">›</span></a></li>
+      <li><a href="https://liff.line.me/2007818946-gJEZdPeR?liff_id=2007818946-gJEZdPeR&is=Jx1BXsyxyl&option_key=ztHx9ZrDHr"><span><span class="g-name">AI活用全般</span><span class="g-desc">AIの使い方・仕事や生活での活用法のご相談</span></span><span class="g-arrow">›</span></a></li>
+      <li><a href="https://liff.line.me/2007818946-gJEZdPeR?liff_id=2007818946-gJEZdPeR&is=Jx1BXsyxyl&option_key=Md2cn0O08i"><span><span class="g-name">AI導入支援コンサル<span class="tag">フリーランスプラン</span></span><span class="g-desc">企業へのAI導入支援を仕事にしたい方のご相談</span></span><span class="g-arrow">›</span></a></li>
+    </ul>
+    <div class="divider">まだ決まっていない方</div>
+    <ul class="genres">
+      <li><a href="https://liff.line.me/2007818946-gJEZdPeR?liff_id=2007818946-gJEZdPeR&is=Jx1BXsyxyl&option_key=NSY21av9e0"><span><span class="g-name">ビジネスの種類を選ばずに予約</span><span class="g-desc">まだ種類が決まっていない方・どれに当てはまるか分からない方はこちら</span></span><span class="g-arrow">›</span></a></li>
+    </ul>
+  </section>
+
+  <!-- 予約の流れ -->
+  <section class="card" id="flow">
+    <h2>予約ページが開いたら（4ステップ）</h2>
+    <ol class="steps">
+      <li><span class="num">1</span><div>
+        <h3>ご相談内容は、選ばれた状態で開きます</h3>
+        <p>上のボタンから開くと、「ご相談内容」はすでに選ばれています。そのまま<strong>「担当講師」の「選択する」</strong>を押してください。</p>
+        <div class="shot">
+          <div class="bar"><span>予約ページ</span><span style="font-weight:400;color:#888">予約履歴</span></div>
+          <div class="row"><span style="color:#444">担当講師</span><span style="color:#999;font-weight:400">未選択</span><span class="btn">選択する</span><span class="pin">1</span></div>
+          <div class="row on"><span class="req">必須</span><span style="color:#444">ご相談内容</span><span style="color:var(--green)">YouTube</span><span class="btn" style="color:#888;border-color:#ccc">変更</span></div>
+          <div class="cap">「ご相談内容」が選ばれていれば、下に予約できる日が表示されます</div>
+        </div>
+      </div></li>
+      <li><span class="num">2</span><div>
+        <h3>担当講師を選びます</h3>
+        <p>ご相談内容に対応できる講師だけが並びます。各講師の<strong>「プロフィールを見る」</strong>から、紹介ページをご覧いただけます。迷ったら<strong>「指定なし」</strong>でも大丈夫です（空いている講師が自動で担当します）。</p>
+        <div class="shot">
+          <div class="list">
+            <div><span class="av" style="background:#eee;border:1.5px dashed #bbb"></span><span style="font-weight:700">指定なし</span><span style="margin-left:auto;color:#888;font-size:11px">自動で割り当て</span></div>
+            <div><span class="av"></span><span style="font-weight:700">あさひ講師</span><span style="margin-left:auto;color:var(--green);font-size:11px">▶ プロフィールを見る</span></div>
+            <div><span class="av"></span><span style="font-weight:700">あて講師</span><span style="margin-left:auto;color:var(--green);font-size:11px">▶ プロフィールを見る</span></div>
+            <div><span class="av"></span><span style="font-weight:700">りょうや講師</span><span style="margin-left:auto;color:var(--green);font-size:11px">▶ プロフィールを見る</span></div>
+          </div>
+          <div class="cap">例：ご相談内容が「YouTube」のときに表示される講師</div>
+        </div>
+      </div></li>
+      <li><span class="num">3</span><div>
+        <h3>日にちと時間を選びます</h3>
+        <p>カレンダーで<strong>色の付いている日</strong>が予約できる日です。日にちを押すと、その日の空いている時間が表示されます。</p>
+        <div class="shot">
+          <div class="month">‹　2026年 10月　›</div>
+          <div class="cal">
+            <div>月</div><div>火</div><div>水</div><div>木</div><div>金</div><div style="color:#4a7fd6">土</div><div style="color:#d64a4a">日</div>
+            <div>19</div><div class="ok">20</div><div class="ok sel">21</div><div class="ok">22</div><div>23</div><div class="ok">24</div><div class="ok">25</div>
+          </div>
+          <div class="times"><div>13:00</div><div class="sel">14:30</div><div>16:00</div></div>
+          <div class="cap">21日を押す → 14:30を選んだところ</div>
+        </div>
+      </div></li>
+      <li><span class="num">4</span><div>
+        <h3>お名前などを入力して、確定します</h3>
+        <p>お名前・フリガナ・Discord名と、<strong>今回ご相談したい内容</strong>を入力してください。相談したい内容は、できるだけ具体的に書いていただくと面談がスムーズです。最後に「確認」→「予約を確定する」で完了です。</p>
+        <div class="shot">
+          <div class="field"><b>お名前（必須）</b>山田 太郎</div>
+          <div class="field"><b>Discord名</b>RISEのDiscordで使っているお名前</div>
+          <div class="field"><b>今回の面談で相談したい内容</b>例：チャンネルを作ったが、最初の10本で何を撮ればいいか迷っている</div>
+          <div class="go">確認画面へ</div>
+          <div class="cap">予約が完了すると、LINEに確認メッセージが届きます</div>
+        </div>
+      </div></li>
+    </ol>
+  </section>
+
+  <!-- よくあるご質問 -->
+  <section class="card" id="faq">
+    <h2>よくあるご質問</h2>
+    <details>
+      <summary>予約できる日が表示されません</summary>
+      <p>「ご相談内容」が<strong>未選択</strong>になっていないかご確認ください。選ぶと、予約できる日が表示されます。このページのボタンから開き直すのがいちばん簡単です。</p>
+    </details>
+    <details>
+      <summary>担当講師は「指定なし」でもいいですか？</summary>
+      <p>はい、大丈夫です。選んだご相談内容に対応できる講師の中から、その時間に空いている講師が自動で担当します。</p>
+    </details>
+    <details>
+      <summary>ご相談内容ごとに、どの講師が選べますか？</summary>
+      <table>
+        <tr><th>ご相談内容</th><td>選べる講師</td></tr>
+        <tr><th>初回面談</th><td>ひろた・あさひ・あて・りょうや・じん</td></tr>
+        <tr><th>YouTube</th><td>あさひ・あて・りょうや・じん</td></tr>
+        <tr><th>Instagram</th><td>あて・りょうや・じん</td></tr>
+        <tr><th>クライアントワーク</th><td>ひろた・あて</td></tr>
+        <tr><th>note</th><td>あさひ・あて</td></tr>
+        <tr><th>AI占い</th><td>ことり・あて</td></tr>
+        <tr><th>AI活用全般</th><td>ひろた・りょうや・せんば（フリーランスプランの方のみ）</td></tr>
+        <tr><th>AI導入支援コンサル</th><td>せんば（フリーランスプランの方のみ）</td></tr>
+        <tr><th>選ばずに予約</th><td>ひろた・あさひ・あて・りょうや・じん</td></tr>
+      </table>
+    </details>
+    <details>
+      <summary>予約の変更・キャンセルはできますか？</summary>
+      <p>予約ページ右上の<strong>「予約履歴」</strong>から、面談の開始時刻までキャンセルできます。日時を変えたい場合は、いったんキャンセルしてから取り直してください。</p>
+    </details>
+    <details>
+      <summary>いつまで予約できますか？</summary>
+      <p>面談日の<strong>14日前から、2日前まで</strong>予約できます。前日・当日の予約はできませんので、お早めにどうぞ。</p>
+    </details>
+    <details>
+      <summary>はじめての面談なのに、ご相談内容のボタンを押してしまいました</summary>
+      <p>ご相談内容が「未選択」の状態で予約ページが開きますが、そのまま進めることはできません。このページに戻って<strong>「初回面談を予約する」</strong>から開き直してください。</p>
+    </details>
+  </section>
+
+  <footer>RISE ラッキーマインAIスクール｜最終更新 2026-10-17</footer>
+</main>
+</body>
+</html>
