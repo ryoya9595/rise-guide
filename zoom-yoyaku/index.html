@@ -24,11 +24,7 @@
   .card p{margin:0 0 10px;font-size:14.5px}.card p:last-child{margin-bottom:0}
   .small{font-size:12.5px;color:var(--muted);line-height:1.7}
   /* 切り替え */
-  .mode{display:none}.mode.on{display:block}
-  body:not(.first) .only-first{display:none}
-  body.first .only-regular{display:none}
-  body:not(.first) #flow{display:none}
-  body:not(.first) #flow.open{display:block}
+  #flow{display:none}#flow.open{display:block}
   .howto{margin-top:14px!important}
   .howto a{font-size:13.5px;color:var(--coral-ink);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px}
   .howto a::after{content:" →"}
@@ -102,15 +98,13 @@
 
   <div class="hero">
     <p class="eyebrow">RISE ZOOM面談</p>
-    <h1 class="only-regular">Zoom面談の予約</h1>
-    <h1 class="only-first">はじめての面談のご予約</h1>
-    <p class="only-regular">ご相談内容のボタンを押すと予約ページが開きます。あとは<strong>担当講師 → 日時</strong>の順に選ぶだけで、約1分で完了します。</p>
-    <p class="only-first">はじめに予約のしかたをご案内します。読み終わったら、いちばん下の<strong>「初回面談を予約する」</strong>ボタンから予約ページへお進みください。</p>
-    <p class="only-regular howto"><a href="#flow" id="howto-link">Zoom面談の予約の仕方を見る</a></p>
+    <h1>Zoom面談の予約</h1>
+    <p>ご相談内容のボタンを押すと予約ページが開きます。あとは<strong>担当講師 → 日時</strong>の順に選ぶだけで、約1分で完了します。</p>
+    <p class="howto"><a href="#flow" id="howto-link">Zoom面談の予約の仕方を見る</a></p>
   </div>
 
-  <!-- 2回目以降（通常のURLで開いたとき。初回の案内は出さない） -->
-  <section class="card mode on" id="mode-regular">
+  <!-- ご相談内容（2回目以降の方向け。初回の方は営業担当から直接予約URLを案内） -->
+  <section class="card" id="genre">
     <h2>ご相談内容を選ぶ</h2>
     <p class="small" style="margin-bottom:14px">選んだご相談内容に対応できる講師だけが表示されます。</p>
     <ul class="genres">
@@ -217,34 +211,18 @@
       <p>面談日の<strong>14日前から、2日前まで</strong>予約できます。前日・当日の予約はできませんので、お早めにどうぞ。</p>
     </details>
     <details>
-      <summary>はじめての面談なのに、ご相談内容のボタンを押してしまいました</summary>
-      <p>ご相談内容が「未選択」の状態で予約ページが開きますが、そのまま進めることはできません。入会時にお送りしている<strong>「初回面談のご予約」のメッセージ</strong>のボタンから、このページを開き直してください。</p>
+      <summary>はじめての面談（初回面談）はどこから予約しますか？</summary>
+      <p>初回面談は、このページからは予約できません。入会時に担当者からご案内した<strong>初回面談専用の予約URL</strong>からお進みください。</p>
     </details>
-  </section>
-
-  <!-- はじめての方：ページの最後にボタン（#first で開いたときだけ表示） -->
-  <section class="card mode" id="mode-first">
-    <h2>予約へ進む</h2>
-    <p>上の流れを確認できたら、こちらから予約ページを開いてください。「ご相談内容」は「初回面談」が選ばれた状態で開きます。</p>
-    <a class="cta" href="https://liff.line.me/2007818946-gJEZdPeR?liff_id=2007818946-gJEZdPeR&is=Jx1BXsyxyl&option_key=sCMHGpur1o">
-      <span>初回面談を予約する<small>はじめての面談の方のみ選べます</small></span><span class="arrow">›</span>
-    </a>
   </section>
 
   <footer>RISE ラッキーマインAIスクール｜最終更新 2026-10-17</footer>
 </main>
 <script>
 (function(){
-  const reg=document.getElementById('mode-regular'),fst=document.getElementById('mode-first');
   const link=document.getElementById('howto-link'),flow=document.getElementById('flow');
-  function apply(){
-    const first=location.hash==='#first';
-    document.body.classList.toggle('first',first);
-    fst.classList.toggle('on',first); reg.classList.toggle('on',!first);
-    if(first) window.scrollTo(0,0);
-  }
-  apply(); window.addEventListener('hashchange',apply);
-  if(link){link.addEventListener('click',e=>{e.preventDefault();flow.classList.add('open');link.parentElement.style.display='none';flow.scrollIntoView({behavior:'smooth',block:'start'});});}
+  if(location.hash==='#flow') flow.classList.add('open');
+  link.addEventListener('click',e=>{e.preventDefault();flow.classList.add('open');link.parentElement.style.display='none';flow.scrollIntoView({behavior:'smooth',block:'start'});});
 })();
 </script>
 </body>
