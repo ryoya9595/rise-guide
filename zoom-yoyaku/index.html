@@ -235,9 +235,15 @@
 </main>
 <script>
 (function(){
-  const first=location.hash==='#first';
-  if(first){document.body.classList.add('first');document.getElementById('mode-first').classList.add('on');document.getElementById('mode-regular').classList.remove('on');}
+  const reg=document.getElementById('mode-regular'),fst=document.getElementById('mode-first');
   const link=document.getElementById('howto-link'),flow=document.getElementById('flow');
+  function apply(){
+    const first=location.hash==='#first';
+    document.body.classList.toggle('first',first);
+    fst.classList.toggle('on',first); reg.classList.toggle('on',!first);
+    if(first) window.scrollTo(0,0);
+  }
+  apply(); window.addEventListener('hashchange',apply);
   if(link){link.addEventListener('click',e=>{e.preventDefault();flow.classList.add('open');link.parentElement.style.display='none';flow.scrollIntoView({behavior:'smooth',block:'start'});});}
 })();
 </script>
